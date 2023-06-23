@@ -7,7 +7,7 @@ const MainNavigation = (props) => {
           <li>Shop</li>
         </ul>
       </div>
-      <div className="text-2xl">BOUTIQUE</div>
+      <div className="text-xl">BOUTIQUE</div>
       <div>
         <ul className="flex space-x-3">
           <li>Cart</li>
