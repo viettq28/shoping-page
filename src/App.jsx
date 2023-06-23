@@ -1,10 +1,15 @@
-import './index.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import Layout from './pages/Layout';
+
+const router = createBrowserRouter([
+  { element: <Layout />, children: [
+    { index: true, element: <Layout />}
+  ]}
+]);
 
 function App() {
-
-  return (
-    <div className="text-3xl text-yellow-700">Hello</div>
-  )
+  return <RouterProvider router={router}/>
 }
 
 export default App
