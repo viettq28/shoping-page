@@ -1,10 +1,29 @@
-import { useLoaderData } from 'react-router-dom';
+import { Link, useRouteLoaderData, useSearchParams } from 'react-router-dom';
+import { createPortal } from 'react-dom';
 
 import Hover from '../UI/Hover';
+import Popup from './Popup';
 
-const Products = (props) => {
-  const products = useLoaderData();
+const Products = () => {
+  const products = useRouteLoaderData('root');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeModal = searchParams.get('modal');
+  
   console.log(products);
+
+  const closePopup = (closeAnimation) => {
+    document.body.style.overflowY = 'auto';
+    document.body.style.paddingRight = 0;
+    setTimeout(() => setSearchParams(''), 300);
+    closeAnimation();
+  };
+
+  const openPopup = () => {
+    document.body.style.paddingRight = '1.3%';
+    document.body.style.overflowY = 'hidden';
+  };
+  
+
   return (
     <>
       <div className="mt-5 py-5">
@@ -14,13 +33,15 @@ const Products = (props) => {
       <div className="flex flex-wrap justify-between [&>*]:max-w-[23%]">
         {products.map((product) => {
           return (
-            <Hover key={Object.values(product._id)[0]}>
-              <img
-                src={product.img1}
-                alt={Object.values(product._id)[0]}
-                className=""
-              />
-              <div className='text-center space-y-1 p-2'>
+            <Link
+              key={Object.values(product._id)[0]}
+              to={`/?modal=${Object.values(product._id)[0]}`}
+              onClick={openPopup}
+            >
+              <Hover>
+                <img src={product.img1} alt={Object.values(product._id)[0]} />
+              </Hover>
+              <div className="space-y-1 p-2 text-center">
                 <p className="text-sm font-medium">{product.name}</p>
                 <p className="text-xs text-zinc-400">
                   {(+product.price).toLocaleString('vi-VN', {
@@ -30,19 +51,15 @@ const Products = (props) => {
                   })}
                 </p>
               </div>
-            </Hover>
+            </Link>
           );
         })}
+        {activeModal && createPortal(
+          <Popup closePopup={closePopup}/>,
+          document.getElementById('modal')
+        )}
       </div>
     </>
   );
 };
 export default Products;
-
-export const loader = async function () {
-  const res = await fetch(
-    'https://firebasestorage.googleapis.com/v0/b/funix-subtitle.appspot.com/o/Boutique_products.json?alt=media&token=dc67a5ea-e3e0-479e-9eaf-5e01bcd09c74'
-  );
-  const data = await res.json();
-  return data;
-};
