@@ -3,7 +3,7 @@ import Button from "../UI/Button";
 const OtherInfos = (props) => {
   return (
     <>
-      <div className="mt-11 flex justify-around bg-[#F4F5F9] py-11">
+      <div className="mt-11 flex justify-around bg-[--cust-bg] py-11">
         <div>
           <p>FREE SHIPPING</p>
           <p className="text-sm text-zinc-400">Free shipping worldwide</p>

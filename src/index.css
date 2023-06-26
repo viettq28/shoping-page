@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --cust-font: #E9C77B;
+    --cust-bg: #F4F5F9;
+}
+.active-text {
+    color: var(--cust-font) !important;
+}
+

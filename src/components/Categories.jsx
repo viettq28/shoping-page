@@ -10,7 +10,7 @@ const Categories = () => {
       <div className="grid grid-cols-6 gap-4">
         {Array.from({ length: 5 }).map((_, i) => {
           return (
-            <Hover key={i} className={`col-span-${i<2 ? 3 : 2}`}>
+            <Hover key={i} className={`${i<2 ? 'col-span-3' : 'col-span-2'}`}>
               <img src={`src/resources/product_${i + 1}.png`} alt={i} />
             </Hover>
           );
