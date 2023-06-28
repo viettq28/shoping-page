@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 
 import Layout, { loader as productsLoader } from './pages/Layout';
 import HomePage from './pages/HomePage';
@@ -13,7 +13,7 @@ import RegisterPage from './pages/RegisterPage';
 const router = createBrowserRouter([
   { element: <Layout />, id: 'root', children: [
     { index: true, element: <HomePage /> },
-    { path: 'shop', element: <ShopPage /> },
+    { path: 'shop', element: <Navigate to='all' /> },
     { path: 'shop/:category', element: <ShopPage /> },
     { path: 'detail/:productId', element: <DetailPage /> },
     { path: 'cart', element: <CartPage /> },

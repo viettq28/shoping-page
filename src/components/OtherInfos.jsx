@@ -1,4 +1,4 @@
-import Button from "../UI/Button";
+import Button from '../UI/Button';
 
 const OtherInfos = (props) => {
   return (
@@ -17,19 +17,23 @@ const OtherInfos = (props) => {
           <p className="text-sm text-zinc-400">Free shipping worldwide</p>
         </div>
       </div>
-      <div className="flex justify-between py-9 mb-9">
+      <div className="mb-9 flex justify-between py-9">
         <div>
           <p>LET&lsquo;S BE FRIENDS!</p>
-          <p className="text-sm text-zinc-400">Nisi Nisi tempor consequat laboris nisi!</p>
+          <p className="text-sm text-zinc-400">
+            Nisi Nisi tempor consequat laboris nisi!
+          </p>
         </div>
-        <div className="[&>*]:h-full w-1/2 flex">
-            <input type="text" placeholder="Enter your email address"
-                className="w-3/4 border-zinc-400 border text-xs px-3 focus:outline-none"
-            />
-            <Button title='Subscribe' className='w-1/4'/>
+        <div className="flex w-1/2 [&>*]:h-full">
+          <input
+            type="text"
+            placeholder="Enter your email address"
+            className="w-3/4 border border-zinc-400 px-3 text-xs focus:outline-none"
+          />
+          <Button title="Subscribe" className="w-1/4" />
         </div>
       </div>
     </>
   );
-};  
+};
 export default OtherInfos;
