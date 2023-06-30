@@ -4,24 +4,26 @@ import { Form, Link } from 'react-router-dom';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
 
-const Login = () => {
+const Register = () => {
   const [firstTime, setFirstTime] = useState(true);
   const [formInput, setFormInput] = useState({
+    fullname: '',
     email: '',
     password: '',
+    phone: '',
   });
-  const { email, password } = formInput;
+  const { fullname, email, password, phone } = formInput;
   const [msg, setMsg] = useState('');
 
   useEffect(() => {
-    if (email === '' || password === '') {
+    if (fullname === '' || email === '' || password === '' || phone === '') {
       setMsg((msg) => `${msg}\n- All input must be filled in`);
     }
     if (password.length <= 8) {
       setMsg((msg) => `${msg}\n- Password must be at least 8 characters`);
     }
     return () => setMsg('');
-  }, [email, password]);
+  }, [fullname, email, password, phone]);
 
   const handleSubmit = (e) => {
     if (firstTime) {
@@ -56,7 +58,7 @@ const Login = () => {
       <div
         className={`absolute m-auto w-1/2 bg-white ${shadow} inset-1/2 h-full -translate-x-1/2 rounded-md p-10 text-center`}
       >
-        <p className="text-4xl font-light">Sign in</p>
+        <p className="text-4xl font-light">Sign Up</p>
 
         <Form
           method="post"
@@ -64,6 +66,12 @@ const Login = () => {
           onSubmit={handleSubmit}
         >
           <div className="[&>*]:w-full [&>*]:p-5">
+            <Input
+              id="fullname"
+              placeholder="Fullname"
+              handleChange={handleChange}
+              value={fullname}
+            />
             <Input
               id="email"
               type="email"
@@ -78,25 +86,32 @@ const Login = () => {
               handleChange={handleChange}
               value={password}
             />
+            <Input
+              id="phone"
+              type="tel"
+              placeholder="Phone"
+              handleChange={handleChange}
+              value={phone}
+            />
             <p className="whitespace-pre text-xs italic text-red-500">
               {!firstTime && msg}
             </p>
           </div>
           <Button
-            title="SIGN IN"
+            title="SIGN UP"
             className="w-full py-4 disabled:cursor-not-allowed disabled:bg-red-500"
             isDisabled={msg !== '' && !firstTime}
           />
         </Form>
 
         <p className="mt-9 font-thin tracking-wide">
-          Create An Account?{' '}
-          <Link to="/register" className="text-sky-500">
-            Sign up
+          Login?{' '}
+          <Link to="/login" className="text-sky-500">
+            Click
           </Link>
         </p>
       </div>
     </div>
   );
 };
-export default Login;
+export default Register;

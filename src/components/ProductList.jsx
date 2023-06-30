@@ -29,7 +29,6 @@ const ProductList = ({ curCat }) => {
       <div className="flex transform-gpu flex-wrap justify-start gap-[8%] [&>*]:max-w-[28%]">
         {data.map((product) => {
           if (product.category === curCat || curCat === 'all') {
-            console.log(product.id);
             i++;
             return (
               <Link key={product.id} to={`/detail/${product.id}`}>

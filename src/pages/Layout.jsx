@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import MainNavigation from '../components/MainNavigation';
 import Footer from '../components/Footer';
 
-const Layout = (props) => {
+const Layout = () => {
   return (
     <>
       <div className="container max-w-4xl mx-auto italic">
