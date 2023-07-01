@@ -10,8 +10,6 @@ const Products = () => {
   const [curProduct, setCurProduct] = useState(null);
   const products = useRouteLoaderData('root');
 
-  console.log(products);
-
   const openPopup = (e) => {
     const target = e.target.firstChild;
     if (target?.nodeName === 'IMG') {

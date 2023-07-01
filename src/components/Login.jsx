@@ -50,11 +50,11 @@ const Login = () => {
     'shadow-[rgba(14,30,37,0.12)_0px_2px_4px_0px,rgba(14,30,37,0.32)_0px_2px_16px_0px]';
   return (
     <div
-      className="relative h-[600px] w-full bg-contain"
+      className="relative h-[800px] w-full bg-contain"
       style={{ backgroundImage: `url('/src/resources/banner1.jpg')` }}
     >
       <div
-        className={`absolute m-auto w-1/2 bg-white ${shadow} inset-1/2 h-full -translate-x-1/2 rounded-md p-10 text-center`}
+        className={`absolute m-auto w-1/2 bg-white ${shadow} inset-1/2 h-3/4 -translate-x-1/2 rounded-md p-10 text-center`}
       >
         <p className="text-4xl font-light">Sign in</p>
 

@@ -1,9 +1,26 @@
 import { Outlet } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import useLocalStorage from '../hook/useLocalStorage';
 
 import MainNavigation from '../components/MainNavigation';
 import Footer from '../components/Footer';
+import { login, logout } from '../store/authReducer';
 
 const Layout = () => {
+  const dispatch = useDispatch();
+  const loginUser = useLocalStorage('LOGIN_USER');
+
+  useEffect(() => {
+    if (loginUser) {
+      dispatch(login());
+    }
+    if (!loginUser) {
+      dispatch(logout());
+    }
+
+  }, [loginUser, dispatch]);
+
   return (
     <>
       <div className="container max-w-4xl mx-auto italic">

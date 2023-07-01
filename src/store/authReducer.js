@@ -1,23 +1,37 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const authReducer = createSlice({
   name: 'auth',
-  initialState: '',
+  initialState: {
+    isLogin: false,
+    curCart: null,
+  },
   reducers: {
-    login: (state, action) => {
-      return state = action.payload;
+    login: {
+      prepare: () => {
+        return {
+          payload: {
+            isLogin: true,
+            curUser: JSON.parse(localStorage.getItem('LOGIN_USER')),
+            curCart: null,
+          },
+        };
+      },
+      reducer: (state, action) => {
+        return (state = action.payload);
+      },
+    },
+    logout: (state) => {
+      return state = {
+        isLogin: false,
+        curUser: null,
+        curCart: null,
+      };
     },
   },
-})
+});
 
-export function logout() {
-  return (dispatch) => {
-    localStorage.removeItem('LOGIN_USER');
-    dispatch({type: 'auth/logout', state: ''});
-  }
-}
 
 export default authReducer.reducer;
 
-export const { login } = authReducer.actions
-
+export const { login, logout } = authReducer.actions;
