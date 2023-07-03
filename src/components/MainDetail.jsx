@@ -45,7 +45,7 @@ const MainDetail = ({ product }) => {
             <span className="text-zinc-400">QUANTITY</span>
             <span>1</span>
           </div>
-          <Button title="Add to cart" className="text-base leading-6" handleClick={handleClick} />
+          <Button className="text-base leading-6" handleClick={handleClick}>Add to cart</Button>
         </div>
       </div>
     </div>

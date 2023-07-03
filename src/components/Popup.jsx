@@ -35,7 +35,7 @@ const Popup = ({ closePopup, ...curProduct }) => {
             <p className='text-xl font-semibold'>{curProduct.name}</p>
             <p className=' text-xl text-zinc-500'>{curProduct.price}</p>
             <p className="text-sm text-zinc-400 line-clamp-[8]">{curProduct.desc}</p>
-            <Button title='View Detail' className='text-base -left-3 top-3 relative'/>
+            <Button className='text-base -left-3 top-3 relative'>View Detail</Button>
         </div>
 
       </div>

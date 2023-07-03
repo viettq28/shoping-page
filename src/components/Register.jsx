@@ -98,10 +98,9 @@ const Register = () => {
             </p>
           </div>
           <Button
-            title="SIGN UP"
             className="w-full py-4 disabled:cursor-not-allowed disabled:bg-red-500"
             isDisabled={msg !== '' && !firstTime}
-          />
+          >SIGN UP</Button>
         </Form>
 
         <p className="mt-9 font-thin tracking-wide">

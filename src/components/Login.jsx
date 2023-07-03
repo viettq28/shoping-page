@@ -83,10 +83,9 @@ const Login = () => {
             </p>
           </div>
           <Button
-            title="SIGN IN"
             className="w-full py-4 disabled:cursor-not-allowed disabled:bg-red-500"
             isDisabled={msg !== '' && !firstTime}
-          />
+          >SIGN IN</Button>
         </Form>
 
         <p className="mt-9 font-thin tracking-wide">

@@ -30,7 +30,7 @@ const OtherInfos = (props) => {
             placeholder="Enter your email address"
             className="w-3/4 border border-zinc-400 px-3 text-xs focus:outline-none"
           />
-          <Button title="Subscribe" className="w-1/4" />
+          <Button className="w-1/4">Subscribe</Button>
         </div>
       </div>
     </>

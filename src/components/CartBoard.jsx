@@ -3,7 +3,7 @@ import { useRouteLoaderData } from 'react-router-dom';
 
 import CartItem from './CartItem';
 
-const CartBoard = () => {
+const CartBoard = ({setTotal}) => {
   const list = useRouteLoaderData('root');
   const cart = useSelector((state) => state.cart);
   // console.log(cart);
@@ -27,7 +27,7 @@ const CartBoard = () => {
         {products.map((product) => {
           return (
             <li key={product.id} className='tracking-normal'>
-              <CartItem product={product} />
+              <CartItem product={product} setTotal={setTotal} />
             </li>
           );
         })}
