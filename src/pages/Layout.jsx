@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import useLocalStorage from '../hook/useLocalStorage';
 
 import MainNavigation from '../components/MainNavigation';
@@ -23,7 +24,7 @@ const Layout = () => {
 
   return (
     <>
-      <div className="container max-w-4xl mx-auto italic">
+      <div className="container max-w-5xl mx-auto italic">
         <MainNavigation />
         <Outlet />
       </div>

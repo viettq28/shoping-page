@@ -1,9 +1,9 @@
-import ShopHeader from "../components/ShopHeader";
+import Header from "../UI/Header";
 import ShopBody from "../components/ShopBody";
 
 const ShopPage = () => {
   return <>
-    <ShopHeader />
+    <Header title='Shop'/>
     <ShopBody />
   </>
 };

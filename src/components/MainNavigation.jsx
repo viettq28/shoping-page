@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 
 const MainNavigation = () => {
   const navigate = useNavigate();
-  const isLogin = useSelector((state) => state.auth.isLogin);
-  const curUser = useSelector((state) => state.auth.curUser?.fullname);
+  const curUser = useSelector((state) => state.auth?.curUser);
+
+  console.log(curUser);
 
   return (
     <div className="flex items-center justify-between py-4">
@@ -24,7 +25,7 @@ const MainNavigation = () => {
           <Link to="cart">
             <li>Cart</li>
           </Link>
-          {isLogin ? (
+          {curUser ? (
             <>
               <li>{curUser}</li>
               <li

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const authReducer = createSlice({
   name: 'auth',
   initialState: {
-    isLogin: false,
+    curUser: null,
     curCart: null,
   },
   reducers: {
@@ -11,19 +11,17 @@ const authReducer = createSlice({
       prepare: () => {
         return {
           payload: {
-            isLogin: true,
-            curUser: JSON.parse(localStorage.getItem('LOGIN_USER')),
-            curCart: null,
+            curUser: JSON.parse(localStorage.getItem('LOGIN_USER')).fullname,
+            curCart: JSON.parse(localStorage.getItem('LOGIN_USER')).id,
           },
         };
       },
       reducer: (state, action) => {
-        return (state = action.payload);
+        return state = action.payload;
       },
     },
     logout: (state) => {
       return state = {
-        isLogin: false,
         curUser: null,
         curCart: null,
       };

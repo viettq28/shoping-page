@@ -1,4 +1,4 @@
-const Footer = (props) => {
+const Footer = () => {
   const footerEl = {
     'CUSTOMER SERVICES': [
       'Help & Contact Us',

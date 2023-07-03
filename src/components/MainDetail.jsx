@@ -1,6 +1,14 @@
+import { useDispatch } from 'react-redux';
+import { addItem } from '../store/cartReducer';
+
 import Button from '../UI/Button';
 
 const MainDetail = ({ product }) => {
+  const dispatch = useDispatch()
+  const handleClick = () => {
+    dispatch(addItem(product.id));
+  }
+
   return (
     <div className="mt-10 flex min-h-[400px] w-full bg-white">
       <div className="flex w-1/2">
@@ -16,7 +24,11 @@ const MainDetail = ({ product }) => {
             );
           })}
         </div>
-        <img src={product.img1} alt="a" className="w-4/5 object-cover p-5 h-fit" />
+        <img
+          src={product.img1}
+          alt="a"
+          className="h-fit w-4/5 object-cover p-5"
+        />
       </div>
       <div className="w-1/2 space-y-3 px-5 py-5 italic">
         <p className="text-3xl font-semibold">{product.name}</p>
@@ -28,15 +40,12 @@ const MainDetail = ({ product }) => {
           CATEGORY:
           <span className="ml-2 text-zinc-400">{product.category}</span>
         </p>
-        <div className='flex'>
-          <div className='w-1/2 border border-zinc-300 p-2 flex justify-between'>
-            <span className='text-zinc-400'>QUANTITY</span>
+        <div className="flex">
+          <div className="flex w-1/2 justify-between border border-zinc-300 p-2">
+            <span className="text-zinc-400">QUANTITY</span>
             <span>1</span>
           </div>
-          <Button
-            title="Add to cart"
-            className="text-base leading-6"
-          />
+          <Button title="Add to cart" className="text-base leading-6" handleClick={handleClick} />
         </div>
       </div>
     </div>
