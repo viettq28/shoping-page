@@ -49,6 +49,7 @@ const Products = () => {
             />
           );
         })}
+
         {curProduct &&
           createPortal(
             <Popup closePopup={closePopup} {...curProduct} />,

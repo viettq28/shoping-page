@@ -4,10 +4,20 @@ import { addItem } from '../store/cartReducer';
 import Button from '../UI/Button';
 
 const MainDetail = ({ product }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const handleClick = () => {
-    dispatch(addItem(product.id));
-  }
+    dispatch(
+      addItem({
+        id: product.id,
+        value: {
+          name: product.name,
+          img: product.img1,
+          price: product.price,
+          qty: 1,
+        },
+      })
+    );
+  };
 
   return (
     <div className="mt-10 flex min-h-[400px] w-full bg-white">
@@ -45,7 +55,9 @@ const MainDetail = ({ product }) => {
             <span className="text-zinc-400">QUANTITY</span>
             <span>1</span>
           </div>
-          <Button className="text-base leading-6" handleClick={handleClick}>Add to cart</Button>
+          <Button className="text-base leading-6" handleClick={handleClick}>
+            Add to cart
+          </Button>
         </div>
       </div>
     </div>

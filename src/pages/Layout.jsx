@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import useLocalStorage from '../hook/useLocalStorage';
 
 import MainNavigation from '../components/MainNavigation';

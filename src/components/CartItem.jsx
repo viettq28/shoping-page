@@ -6,33 +6,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
-const CartItem = ({ product, setTotal }) => {
+const CartItem = ({ id, product, setTotal }) => {
   const dispatch = useDispatch();
   const totalPrice = +product.price * +product.qty;
   useEffect(() => {
     setTotal((total) => {
-      return { ...total, [product.id]: totalPrice };
+      return { ...total, [id]: totalPrice };
     });
-  }, [product.id, totalPrice, setTotal]);
+  }, [id, totalPrice, setTotal]);
 
   const handleIncrement = () => {
-    dispatch(updateItem({ update: 'increase', id: product.id }));
+    dispatch(updateItem({ update: 'increase', id: id }));
   };
 
   const handleDecrement = () => {
-    dispatch(updateItem({ update: 'decrease', id: product.id }));
+    dispatch(updateItem({ update: 'decrease', id: id }));
   };
 
   const handleDeletion = () => {
     setTotal((total) => {
-      return { ...total, [product.id]: 0 };
+      return { ...total, [id]: 0 };
     });
-    dispatch(deleteItem(product.id));
+    dispatch(deleteItem(id));
   };
   return (
     <>
       <img
-        src={product.img1}
+        src={product.img}
         alt={product.name}
         className="object-cover px-4"
       ></img>

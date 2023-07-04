@@ -3,23 +3,23 @@ import { logout } from './authReducer';
 
 const cartReducer = createSlice({
   name: 'cart',
-  initialState: {},
+  initialState: [],
   reducers: {
     initCart: (state, action) => {
-      return (state = action.payload);
+      return state = action.payload;
     },
     addItem: (state, action) => {
-      return (state = { ...state, [action.payload]: 1 });
+      return (state = {...state, [action.payload.id]: action.payload.value});
     },
     updateItem: (state, action) => {
-      let updatedItem = state[action.payload.id];
-      if (action.payload.update === 'increase') updatedItem++;
-      if (action.payload.update === 'decrease') updatedItem--;
-      return (state = { ...state, [action.payload.id]: updatedItem});
+      const {[action.payload.id]: updatedItem} = state;
+      if (action.payload.update === 'increase') updatedItem.qty++;
+      if (action.payload.update === 'decrease') updatedItem.qty--;
+      // return state = {...state, [action.payload.id]: updatedItem}
     },
     deleteItem: (state, action) => {
-      const { [action.payload]: deleted, ...newState } = state;
-      return (state = newState);
+      const {[action.payload.id]: deletedItem, ...newState} = state;
+      return state = newState;
     },
   },
   extraReducers: (builder) => {

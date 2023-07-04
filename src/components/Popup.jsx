@@ -4,7 +4,6 @@ import Button from '../UI/Button';
 
 const Popup = ({ closePopup, ...curProduct }) => {
   const [transition, setTransition] = useState(false);
-  console.log('hello');
   useEffect(() => {
     const timer = setTimeout(() => {
       setTransition(true);
@@ -28,7 +27,7 @@ const Popup = ({ closePopup, ...curProduct }) => {
         onClick={handleClose}
       ></div>
       <div
-        className={`fixed flex left-1/2 top-1/2 h-3/4 min-h-[400px] w-3/4 -translate-x-1/2 -translate-y-1/2 bg-white transition duration-300 ease-in-out ${transition ? 'opacity-100' : '-translate-y-80 opacity-0'}`}
+        className={`fixed flex left-1/2 top-1/2 h-3/4 min-h-[400px] w-3/4 -translate-x-1/2 -translate-y-1/2 bg-white transition duration-300 ease-in-out ${transition ? 'opacity-100' : '-translate-y-80 opacity-0'}`} onClick={handleClose}
       >
         <img src={curProduct.img} alt="a" className='object-cover p-5'/>
         <div className='italic py-10 px-10 space-y-3'>

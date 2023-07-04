@@ -8,7 +8,7 @@ const ShopBody = () => {
 
   return <div className="flex my-6 gap-6">
     <SideMenu />
-    <ProductList key={curCat} curCat={curCat}/>
+    <ProductList curCat={curCat}/>
   </div>
 };
 export default ShopBody

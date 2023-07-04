@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 
 import CartBoard from './CartBoard';
 import CartTotal from './CartTotal';
