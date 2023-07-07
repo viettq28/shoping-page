@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { addItem } from '../store/cartReducer';
 
+import getPrice from '../tools/getPriceFromString';
+
 import Button from '../UI/Button';
 
 const MainDetail = ({ product }) => {
@@ -42,7 +44,7 @@ const MainDetail = ({ product }) => {
       </div>
       <div className="w-1/2 space-y-3 px-5 py-5 italic">
         <p className="text-3xl font-semibold">{product.name}</p>
-        <p className=" text-xl text-zinc-500">{product.price}</p>
+        <p className=" text-xl text-zinc-500">{getPrice(product.price)}</p>
         <p className="line-clamp-[8] text-sm text-zinc-400">
           {product.short_desc}
         </p>

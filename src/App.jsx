@@ -14,6 +14,7 @@ import DetailPage from './pages/DetailPage';
 import ShopPage from './pages/ShopPage';
 import LoginPage, { action as loginAction } from './pages/LoginPage';
 import RegisterPage, { action as registerAction } from './pages/RegisterPage';
+import ProtectedRoute from './components/ProtectedRoute';
 import store from './store/store';
 
 const router = createBrowserRouter([
@@ -25,8 +26,19 @@ const router = createBrowserRouter([
       { path: 'shop', element: <Navigate to="all" /> },
       { path: 'shop/:category', element: <ShopPage /> },
       { path: 'detail/:productId', element: <DetailPage /> },
-      { path: 'cart', element: <CartPage /> },
-      { path: 'checkout', element: <CheckoutPage /> },
+      {
+        element: <ProtectedRoute />,
+        children: [
+          {
+            path: 'cart',
+            element: <CartPage />,
+          },
+          {
+            path: 'checkout',
+            element: <CheckoutPage />,
+          },
+        ],
+      },
       { path: 'login', element: <LoginPage />, action: loginAction },
       { path: 'register', element: <RegisterPage />, action: registerAction },
     ],
@@ -38,7 +50,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <Provider store={store}>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </Provider>
   );
 }

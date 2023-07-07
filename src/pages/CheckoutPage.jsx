@@ -1,11 +1,10 @@
-import { useSelector } from "react-redux";
-import { useRouteLoaderData } from "react-router-dom";
+import Header from "../UI/Header";
+import CheckoutBody from "../components/CheckoutBody";
 
 const CheckoutPage = () => {
-  const cart = useSelector(state => state.cart);
-  console.log(cart);
   return <>
-    
+    <Header title='checkout' />
+    <CheckoutBody />
   </>
 };
 export default CheckoutPage

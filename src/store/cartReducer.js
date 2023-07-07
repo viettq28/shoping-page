@@ -15,10 +15,9 @@ const cartReducer = createSlice({
       const {[action.payload.id]: updatedItem} = state;
       if (action.payload.update === 'increase') updatedItem.qty++;
       if (action.payload.update === 'decrease') updatedItem.qty--;
-      // return state = {...state, [action.payload.id]: updatedItem}
     },
     deleteItem: (state, action) => {
-      const {[action.payload.id]: deletedItem, ...newState} = state;
+      const {[action.payload]: deletedItem, ...newState} = state;
       return state = newState;
     },
   },

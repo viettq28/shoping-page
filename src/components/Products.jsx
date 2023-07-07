@@ -33,6 +33,9 @@ const Products = () => {
 
   return (
     <>
+      {/* <div className={`fixed inset-0 backdrop-brightness-50 transition duration-300 ease-in-out ${
+      curProduct ? 'opacity-100' : 'opacity-0'
+      }`}></div> */}
       <div className="mt-5 py-5">
         <p className="text-xs text-zinc-400">MADE THE HARD WAY</p>
         <p>TOP TRENDING PRODUCTS</p>

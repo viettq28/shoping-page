@@ -1,19 +1,13 @@
 import getPrice from '../tools/getPriceFromString';
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateItem, deleteItem } from '../store/cartReducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
-const CartItem = ({ id, product, setTotal }) => {
+const CartItem = ({ id, product }) => {
   const dispatch = useDispatch();
   const totalPrice = +product.price * +product.qty;
-  useEffect(() => {
-    setTotal((total) => {
-      return { ...total, [id]: totalPrice };
-    });
-  }, [id, totalPrice, setTotal]);
 
   const handleIncrement = () => {
     dispatch(updateItem({ update: 'increase', id: id }));
@@ -24,9 +18,6 @@ const CartItem = ({ id, product, setTotal }) => {
   };
 
   const handleDeletion = () => {
-    setTotal((total) => {
-      return { ...total, [id]: 0 };
-    });
     dispatch(deleteItem(id));
   };
   return (

@@ -1,11 +1,15 @@
+import { useSelector } from 'react-redux';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGift } from '@fortawesome/free-solid-svg-icons';
-
 import getPrice from '../tools/getPriceFromString';
 
 import Button from '../UI/Button';
 
-const CartTotal = ({ totalPrice }) => {
+const CartTotal = () => {
+  const cart = useSelector(state => state.cart);
+  const total = Object.values(cart).reduce((acc, item) => acc + (+item.price * +item.qty), 0);
+
   return (
     <div className="h-fit w-[30%] space-y-5 bg-[--cust-bg] p-7 font-medium">
       <p className="text-xl">CART TOTAL</p>
@@ -13,14 +17,14 @@ const CartTotal = ({ totalPrice }) => {
         <div className="flex justify-between">
           <p>SUBTOTAL</p>
           <p className="font-normal tracking-normal text-zinc-400">
-            {getPrice(totalPrice)}
+            {getPrice(total)}
           </p>
         </div>
         <div className="border-b border-b-zinc-400"></div>
         <div className="flex justify-between">
           <p>TOTAL</p>
           <p className="text-base font-normal tracking-normal">
-            {getPrice(totalPrice)}
+            {getPrice(total)}
           </p>
         </div>
       </div>

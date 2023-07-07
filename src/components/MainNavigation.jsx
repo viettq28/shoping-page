@@ -5,7 +5,7 @@ const MainNavigation = () => {
   const navigate = useNavigate();
   const curUser = useSelector((state) => state.auth?.curUser);
 
-  console.log(curUser);
+  // console.log(curUser);
 
   return (
     <div className="flex items-center justify-between py-4">
