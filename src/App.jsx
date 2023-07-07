@@ -15,6 +15,7 @@ import ShopPage from './pages/ShopPage';
 import LoginPage, { action as loginAction } from './pages/LoginPage';
 import RegisterPage, { action as registerAction } from './pages/RegisterPage';
 import ProtectedRoute from './components/ProtectedRoute';
+import PreventAuth from './components/PreventAuth';
 import store from './store/store';
 
 const router = createBrowserRouter([
@@ -23,24 +24,26 @@ const router = createBrowserRouter([
     id: 'root',
     children: [
       { index: true, element: <HomePage /> },
-      { path: 'shop', element: <Navigate to="all" /> },
-      { path: 'shop/:category', element: <ShopPage /> },
-      { path: 'detail/:productId', element: <DetailPage /> },
+      { path: '/shop', element: <ShopPage /> },
+      { path: '/shop/:category', element: <ShopPage /> },
+      { path: '/detail/:productId', element: <DetailPage /> },
       {
         element: <ProtectedRoute />,
         children: [
           {
-            path: 'cart',
+            path: '/cart',
             element: <CartPage />,
           },
           {
-            path: 'checkout',
+            path: '/checkout',
             element: <CheckoutPage />,
           },
         ],
       },
-      { path: 'login', element: <LoginPage />, action: loginAction },
-      { path: 'register', element: <RegisterPage />, action: registerAction },
+      { element: <PreventAuth />, children: [
+        { path: '/login', element: <LoginPage />, action: loginAction },
+        { path: '/register', element: <RegisterPage />, action: registerAction },
+      ]}
     ],
     loader: productsLoader,
     shouldRevalidate: () => false,

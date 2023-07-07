@@ -1,8 +1,8 @@
 import { useParams, useRouteLoaderData } from "react-router-dom";
 
-import MainDetail from "../components/MainDetail";
-import Description from "../components/Description";
-import RelatedList from "../components/RelatedList";
+import DetailMain from "../components/DetailMain";
+import DetailDescription from "../components/DetailDescription";
+import DetailRelatedList from "../components/DetailRelatedList";
 
 const DetailPage = () => {
   const { productId } = useParams();
@@ -11,9 +11,9 @@ const DetailPage = () => {
   const relatedList = products.filter(product => product.category === foundProduct.category & product !== foundProduct)
 
   return <>
-    <MainDetail product={foundProduct}/>
-    <Description desc={foundProduct.long_desc}/>
-    <RelatedList list={relatedList}/>
+    <DetailMain product={foundProduct}/>
+    <DetailDescription desc={foundProduct.long_desc}/>
+    <DetailRelatedList list={relatedList}/>
   </>
 };
 export default DetailPage

@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const SideMenu = () => {
+const ShopSideMenu = () => {
   const categories = {
     'IPHONE & MAC': ['Iphone', 'Ipad', 'Macbook'],
     WIRELESS: ['Airpod', 'Watch'],
@@ -31,4 +31,4 @@ const SideMenu = () => {
     </div>
   );
 };
-export default SideMenu;
+export default ShopSideMenu;

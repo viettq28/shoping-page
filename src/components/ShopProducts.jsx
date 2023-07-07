@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 import ProductCard from './ProductCard';
 
-const ProductList = ({ curCat }) => {
+const ShopProducts = ({ curCat }) => {
   const data = useRouteLoaderData('root');
   const [transition, setTransition] = useState(false);
   let i = 0;
@@ -62,4 +62,4 @@ const ProductList = ({ curCat }) => {
     </div>
   );
 };
-export default ProductList;
+export default ShopProducts;

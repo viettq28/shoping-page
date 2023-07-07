@@ -1,11 +1,15 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../store/cartReducer';
 
 import getPrice from '../tools/getPriceFromString';
 
 import Button from '../UI/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
-const MainDetail = ({ product }) => {
+const DetailMain = ({ product }) => {
+  const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(
@@ -15,11 +19,19 @@ const MainDetail = ({ product }) => {
           name: product.name,
           img: product.img1,
           price: product.price,
-          qty: 1,
+          qty: qty,
         },
       })
     );
   };
+  const handleIncrement = (e) => {
+    e.preventDefault()
+    setQty(qty => qty + 1);
+  }; 
+  const handleDecrement = (e) => {
+    e.preventDefault()
+    setQty(qty => qty - 1);
+  }
 
   return (
     <div className="mt-10 flex min-h-[400px] w-full bg-white">
@@ -53,9 +65,17 @@ const MainDetail = ({ product }) => {
           <span className="ml-2 text-zinc-400">{product.category}</span>
         </p>
         <div className="flex">
-          <div className="flex w-1/2 justify-between border border-zinc-300 p-2">
+          <div className="flex w-1/2 border border-zinc-300 p-2">
             <span className="text-zinc-400">QUANTITY</span>
-            <span>1</span>
+            <div className="flex justify-center ml-auto w-1/4 text-center [&>*]:w-1/3">
+              <div className="cursor-pointer" {...(qty > 1 && { onMouseDown: (e) => handleDecrement(e) })}>
+                <FontAwesomeIcon icon={faCaretLeft} size="lg" />
+              </div>
+              <p>{qty}</p>
+              <div className="cursor-pointer" onMouseDown={handleIncrement}>
+                <FontAwesomeIcon icon={faCaretRight} size="lg" />
+              </div>
+            </div>
           </div>
           <Button className="text-base leading-6" handleClick={handleClick}>
             Add to cart
@@ -65,4 +85,4 @@ const MainDetail = ({ product }) => {
     </div>
   );
 };
-export default MainDetail;
+export default DetailMain;

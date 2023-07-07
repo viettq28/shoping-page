@@ -5,15 +5,14 @@ export default {
     extend: {
       keyframes: {
         shake: {
-          '0%': { transform: 'translateX(-50%) translateY(-50%) rotate(0deg)', opacity: 0 },
-          '10%': { transform: 'translateX(-50%) translateY(-50%) rotate(-15deg)', opacity: 0.1 },
-          '70%': { transform: 'translateX(-50%) translateY(-50%) rotate(10deg)', opacity: 0.7 },
-          '90%': { transform: 'translateX(-50%) translateY(-50%) rotate(-3deg)', opacity: 0.9 },
+          '0%': { transform: 'translateX(-50%) translateY(-50%) scale(0)  rotate(0deg)', opacity: 0 },
+          '40%': { transform: 'translateX(-50%) translateY(-50%) scale(1) rotate(-20deg)', opacity: 0.4 },
+          '90%': { transform: 'translateX(-50%) translateY(-50%) rotate(5deg)', opacity: 1 },
           '100%': { transform: 'translateX(-50%) translateY(-50%) rotate(0)', opacity: 1 },
         },
       },
       animation: {
-        'shaking-popup': 'shake 0.5s',
+        'shaking-popup': 'shake 0.65s',
       },
     },
   },

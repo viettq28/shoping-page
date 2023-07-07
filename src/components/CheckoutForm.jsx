@@ -7,7 +7,7 @@ const CheckoutForm = () => {
 
   return (
     <div className="w-[70%] text-zinc-500">
-      <form className='[&>*:not(button)]:w-full [&>label]:uppercase [&>label]:tracking-widest [&>input]:mb-5 [&>input]:mt-2'>
+      <form onSubmit={(e) => e.preventDefault()} className='[&>*:not(button)]:w-full [&>label]:uppercase [&>label]:tracking-widest [&>input]:mb-5 [&>input]:mt-2'>
         {inputField.map((input, i) => {
           return (
             <Fragment key={i}>

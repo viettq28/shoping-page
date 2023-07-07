@@ -9,11 +9,13 @@ const CartItem = ({ id, product }) => {
   const dispatch = useDispatch();
   const totalPrice = +product.price * +product.qty;
 
-  const handleIncrement = () => {
+  const handleIncrement = (e) => {
+    e.preventDefault();
     dispatch(updateItem({ update: 'increase', id: id }));
   };
 
-  const handleDecrement = () => {
+  const handleDecrement = (e) => {
+    e.preventDefault();
     dispatch(updateItem({ update: 'decrease', id: id }));
   };
 
@@ -31,15 +33,15 @@ const CartItem = ({ id, product }) => {
       <p className="px-4 font-normal text-zinc-400">
         {getPrice(product.price)}
       </p>
-      <div className="flex justify-center space-x-4">
+      <div className="flex justify-center px-3 [&>*]:flex [&>*]:items-center [&>*]:justify-center [&>*]:basis-1/3">
         <div
           className="cursor-pointer"
-          {...(product.qty > 1 && { onClick: () => handleDecrement() })}
+          {...(product.qty > 1 && { onMouseDown: (e) => handleDecrement(e) })}
         >
           <FontAwesomeIcon icon={faCaretLeft} size="lg" />
         </div>
         <div>{product.qty}</div>
-        <div className="cursor-pointer" onClick={handleIncrement}>
+        <div className="cursor-pointer" onMouseDown={handleIncrement}>
           <FontAwesomeIcon icon={faCaretRight} size="lg" />
         </div>
       </div>

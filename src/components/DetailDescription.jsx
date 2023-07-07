@@ -1,4 +1,4 @@
-const Description = ({ desc }) => {
+const DetailDescription = ({ desc }) => {
   return (
     <div className="my-10 w-3/5">
       <div className="w-fit bg-neutral-700 px-6 py-2 text-sm font-light text-neutral-100">
@@ -9,4 +9,4 @@ const Description = ({ desc }) => {
     </div>
   );
 };
-export default Description;
+export default DetailDescription;

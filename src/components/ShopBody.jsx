@@ -1,14 +1,14 @@
 import { useParams } from "react-router-dom";
 
-import SideMenu from "./SideMenu";
-import ProductList from "./ProductList";
+import ShopSideMenu from "./ShopSideMenu";
+import ShopProducts from "./ShopProducts";
 
 const ShopBody = () => {
-  const { category: curCat } = useParams();
+  const { category: curCat = 'all' } = useParams();
 
   return <div className="flex my-6 gap-6">
-    <SideMenu />
-    <ProductList curCat={curCat}/>
+    <ShopSideMenu />
+    <ShopProducts key={curCat} curCat={curCat}/>
   </div>
 };
 export default ShopBody
