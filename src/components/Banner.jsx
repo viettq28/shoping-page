@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../UI/Button';
+import banner from '../../public/resources/banner1.jpg';
 
 // Banner trang chủ, Button để chuyển hướng sang ShopPage
 const Banner = () => {
@@ -13,7 +14,7 @@ const Banner = () => {
         <Button handleClick={() => navigate('/shop')}>Browse collections</Button>
       </div>
       <img
-        src="../public/resources/banner1.jpg"
+        src={banner}
         alt="banner"
         className="h-full object-cover"
       ></img>
