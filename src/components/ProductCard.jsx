@@ -3,6 +3,7 @@ import getPrice from '../tools/getPriceFromString';
 import Hover from '../UI/Hover';
 
 const ProductCard = ({ product, className = '' }) => {
+  // Card của product
   return (
     <div className={className}>
       <Hover>

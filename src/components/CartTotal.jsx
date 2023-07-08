@@ -7,13 +7,18 @@ import getPrice from '../tools/getPriceFromString';
 import Button from '../UI/Button';
 
 const CartTotal = () => {
+  // Lấy Cart từ store
   const cart = useSelector(state => state.cart);
+  // Tính tổng tiền cả cart từ giá và số lượng mỗi sản phẩm
   const total = Object.values(cart).reduce((acc, item) => acc + (+item.price * +item.qty), 0);
 
   return (
     <div className="h-fit w-[30%] space-y-5 bg-[--cust-bg] p-7 font-medium">
+      {/* Tiêu đề */}
       <p className="text-xl">CART TOTAL</p>
+      {/* Thân */}
       <div className="space-y-2 text-sm">
+        {/* Mục Subtotal hiện tổng tiền */}
         <div className="flex justify-between">
           <p>SUBTOTAL</p>
           <p className="font-normal tracking-normal text-zinc-400">
@@ -21,6 +26,7 @@ const CartTotal = () => {
           </p>
         </div>
         <div className="border-b border-b-zinc-400"></div>
+        {/* Mục Total hiển thị tổng tiền sau khi tính toán phụ chi nếu có */}
         <div className="flex justify-between">
           <p>TOTAL</p>
           <p className="text-base font-normal tracking-normal">
@@ -28,6 +34,7 @@ const CartTotal = () => {
           </p>
         </div>
       </div>
+      {/* Mục nhập liệu */}
       <div className="text-xs [&>*]:w-full">
         <input
           type="text"

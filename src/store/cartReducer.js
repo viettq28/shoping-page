@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logout } from './authReducer';
 
+// Slice xử lý cart, 3 reducers: initCart, addItem, updateItem, deleteItem
+// State là obj, key = product.id, value = thông tin khác về product trong cart
 const cartReducer = createSlice({
   name: 'cart',
-  initialState: [],
+  initialState: {},
   reducers: {
     initCart: (state, action) => {
       return state = action.payload;
@@ -21,6 +23,7 @@ const cartReducer = createSlice({
       return state = newState;
     },
   },
+  // extraReducers sẽ resetState khi người dùng dispatch action auth/logout
   extraReducers: (builder) => {
     builder.addCase(logout, (state) => {
       return (state = {});

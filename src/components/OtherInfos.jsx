@@ -1,6 +1,7 @@
 import Button from '../UI/Button';
 
-const OtherInfos = (props) => {
+const OtherInfos = () => {
+  // Component OtherInfo của MainPage
   return (
     <>
       <div className="mt-11 flex justify-around bg-[--cust-bg] py-11">

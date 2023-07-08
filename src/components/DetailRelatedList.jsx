@@ -1,6 +1,7 @@
 import ProductCard from './ProductCard';
 
 const RelatedList = ({ list }) => {
+  // List các sản phẩm cùng danh mục
   return (
     <div className='mb-10'>
       <p className="text-lg">RELATED PRODUCTS</p>

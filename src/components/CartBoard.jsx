@@ -5,7 +5,8 @@ import CartNavigation from './CartNavigation';
 
 const CartBoard = () => {
   const products = useSelector((state) => state.cart);
-  // console.log(products);
+
+  // List các product trong cart, được render bởi CartItem
   return (
     <div className="w-[70%] text-sm">
       <div className="flex bg-[--cust-bg] py-3 text-center [&>*]:w-1/6">

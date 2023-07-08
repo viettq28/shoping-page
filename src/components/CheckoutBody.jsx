@@ -1,6 +1,7 @@
 import CheckoutForm from "./CheckoutForm";
 import CheckoutBill from "./CheckoutBill";
 
+// Gồm CheckoutForm và CheckoutBill
 const CheckoutBody = () => {
   return (
     <div className="my-6 mb-10 gap-6 tracking-widest">

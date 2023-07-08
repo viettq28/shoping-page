@@ -16,6 +16,7 @@ const Footer = () => {
 
     'SOCIAL MEDIA': ['Twitter', 'Intagram', 'Facebook', 'Pinterest'],
   };
+  // Footer Component
   return (
     <div className="bg-stone-950 text-stone-100">
       <div className="container max-w-4xl mx-auto py-[7%] flex justify-between italic">

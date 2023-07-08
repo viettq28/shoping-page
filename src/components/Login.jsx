@@ -1,18 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Form, Link } from 'react-router-dom';
 
 import Button from '../UI/Button';
 import Input from '../UI/Input';
 
 const Login = () => {
+  // State kiểm tra nhập liệu lần đầu
   const [firstTime, setFirstTime] = useState(true);
+  // State input email và password
   const [formInput, setFormInput] = useState({
     email: '',
     password: '',
   });
   const { email, password } = formInput;
+  // State thông báo
   const [msg, setMsg] = useState('');
 
+  // Hiện thị thông báo không đúng yêu cầu, thông báo cập nhật mỗi khi người dùng nhập liệu
   useEffect(() => {
     if (email === '' || password === '') {
       setMsg((msg) => `${msg}\n- All input must be filled in`);
@@ -24,9 +28,11 @@ const Login = () => {
   }, [email, password]);
 
   const handleSubmit = (e) => {
+    // Người dùng nhập liệu không đúng thì người dùng mất lần đầu
     if (firstTime) {
       setFirstTime(false);
     }
+    // Kiểm tra nếu có thông báo lỗi thì không cho post form, nếu không thì xóa input và cho post
     if (msg.length !== 0) {
       e.preventDefault();
     } else {
@@ -38,7 +44,7 @@ const Login = () => {
       });
     }
   };
-
+  // setState khi thay đổi nhập liệu
   const handleChange = (e) => {
     setFormInput({
       ...formInput,
@@ -56,14 +62,16 @@ const Login = () => {
       <div
         className={`absolute m-auto w-1/2 bg-white ${shadow} inset-1/2 h-3/4 -translate-x-1/2 rounded-md p-10 text-center`}
       >
+        {/* Tiêu đề Form */}
         <p className="text-4xl font-light">Sign in</p>
-
+        {/* Form được post và xử lý bơi action ở LoginPage */}
         <Form
           method="post"
           className="mt-20 [&_*]:not-italic"
           onSubmit={handleSubmit}
         >
           <div className="[&>*]:w-full [&>*]:p-5">
+            {/* Trường nhập email */}
             <Input
               id="email"
               type="email"
@@ -71,6 +79,7 @@ const Login = () => {
               handleChange={handleChange}
               value={email}
             />
+            {/* Trường nhập password */}
             <Input
               id="password"
               type="password"
@@ -78,16 +87,19 @@ const Login = () => {
               handleChange={handleChange}
               value={password}
             />
+            {/* Người dùng sẽ được submit form mà không có thông báo lỗi ở lần nhập đầu tiên */}
+            {/* Nếu nhập liệu không đúng thì những lần sau sẽ hiển thị thông báo */}
             <p className="whitespace-pre text-xs italic text-red-500">
               {!firstTime && msg}
             </p>
           </div>
+          {/* Button submit form */}
           <Button
             className="w-full py-4 disabled:cursor-not-allowed disabled:bg-red-500"
             isDisabled={msg !== '' && !firstTime}
           >SIGN IN</Button>
         </Form>
-
+        {/* Chuyển hướng sang trang RegisterPage */}
         <p className="mt-9 font-thin tracking-wide">
           Create An Account?{' '}
           <Link to="/register" className="text-sky-500">

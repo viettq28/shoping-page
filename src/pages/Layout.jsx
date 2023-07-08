@@ -8,11 +8,15 @@ import MainNavigation from '../components/MainNavigation';
 import Footer from '../components/Footer';
 import ChatPopup from '../components/ChatPopup';
 
+// LayoutPage
 const Layout = () => {
+  // State show ChatPopup
   const [showPop, setShowPop] = useState(false);
   const dispatch = useDispatch();
+  // Kiểm tra sự thay đổi của LOGIN_USER trong localStorage
   const loginUser = useLocalStorage('LOGIN_USER');
 
+  // Dispatch action auth/login nếu trong localStorage có loginUser, không thì dispatch action auth/logout
   useEffect(() => {
     if (loginUser) {
       dispatch(login());
@@ -22,20 +26,22 @@ const Layout = () => {
     }
   }, [loginUser, dispatch]);
 
+  // Đóng/Mở ChatPopup
   const handleShowPop = () => {
     setShowPop(true);
   };
-
   const handleHidePop = (e) => {
     setShowPop(false);
   };
 
   return (
     <>
+      {/* MainNavìgation và nội dung Page */}
       <div className="container mx-auto max-w-5xl italic">
         <MainNavigation />
         <Outlet />
       </div>
+      {/* Icon show chat */}
       <div
         id="show"
         className="fixed bottom-12 right-4 w-[2.5rem] shadow-blue-400 drop-shadow-2xl"
@@ -43,6 +49,8 @@ const Layout = () => {
       >
         {bolt}
       </div>
+      {/* Footer */}
+      {/* ChatPopup hiện ra state showPop === true */}
       <Footer />
       {showPop && <ChatPopup handleHidePop={handleHidePop} />}
     </>
@@ -50,6 +58,7 @@ const Layout = () => {
 };
 export default Layout;
 
+// Fetch Data từ API khi load trang
 export const loader = async function () {
   const res = await fetch(
     'https://firebasestorage.googleapis.com/v0/b/funix-subtitle.appspot.com/o/Boutique_products.json?alt=media&token=dc67a5ea-e3e0-479e-9eaf-5e01bcd09c74'

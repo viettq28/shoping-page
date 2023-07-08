@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Slice xử lý authorication, gồm 2 reducers auth/login và auth/logout
+// State là curUser nhận full name và curCart nhận id người dùng
 const authReducer = createSlice({
   name: 'auth',
   initialState: {

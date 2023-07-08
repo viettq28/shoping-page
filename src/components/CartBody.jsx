@@ -1,6 +1,7 @@
 import CartBoard from './CartBoard';
 import CartTotal from './CartTotal';
 
+// Phần thân trang, render CardBoard và CartTotal
 const CartBody = () => {
   return (
     <div className="my-6 gap-6 tracking-widest">

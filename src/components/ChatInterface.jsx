@@ -1,7 +1,10 @@
 const ChatInterface = ({ msgs }) => {
+  // Các msgs được truyền vào có dạng ['người viêt', 'nội dung']
+  // Render đoạn chat tùy vào 'người viêt'
   return (
     <div className="h-[72%] space-y-3 [&_.mess]:w-fit [&_.mess]:rounded-sm [&_.mess]:px-3 [&_.mess]:py-2">
       {msgs.map((msg, i) => {
+        // Nếu 'người viêt' là 'U'
         if (msg[0] === 'U') {
           return (
             <div key={i} className="mess ml-auto bg-[#48B0F7] text-zinc-100">
@@ -9,6 +12,7 @@ const ChatInterface = ({ msgs }) => {
             </div>
           );
         }
+        // 'người viết' khác
         return (
           <div key={i} className="flex gap-2">
             <img

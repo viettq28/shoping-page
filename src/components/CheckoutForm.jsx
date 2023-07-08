@@ -5,6 +5,7 @@ import { Fragment } from 'react';
 const CheckoutForm = () => {
   const inputField = ['Full Name', 'Email', 'Phone Number', 'Address'];
 
+  // CheckoutForm
   return (
     <div className="w-[70%] text-zinc-500">
       <form onSubmit={(e) => e.preventDefault()} className='[&>*:not(button)]:w-full [&>label]:uppercase [&>label]:tracking-widest [&>input]:mb-5 [&>input]:mt-2'>
