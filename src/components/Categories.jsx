@@ -16,7 +16,7 @@ const Categories = () => {
         {categories.map((category, i) => {
           return (
             <Hover key={i} className={`${i < 2 ? 'col-span-3' : 'col-span-2'}`} link={`/shop/${category}`}>
-                <img src={`/src/resources/product_${i + 1}.png`} alt={i} />
+                <img src={`../public/resources/product_${i + 1}.png`} alt={i} />
             </Hover>
           );
         })}
