@@ -1,6 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import Hover from '../UI/Hover';
-
+import imgs from '../tools/exportAllCatImg';
+console.log(imgs);
 // Mục Categories của trang chủ, click vào sẽ chuyển đến ShopPage
 const Categories = () => {
   const categories = ['iphone', 'mac', 'ipad', 'watch', 'airpod'];
@@ -16,7 +17,7 @@ const Categories = () => {
         {categories.map((category, i) => {
           return (
             <Hover key={i} className={`${i < 2 ? 'col-span-3' : 'col-span-2'}`} link={`/shop/${category}`}>
-                <img src={`../public/resources/product_${i + 1}.png`} alt={i} />
+                <img src={imgs[i]} alt={i} />
             </Hover>
           );
         })}
