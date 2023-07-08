@@ -13,7 +13,7 @@ const Banner = () => {
         <Button handleClick={() => navigate('/shop')}>Browse collections</Button>
       </div>
       <img
-        src="src\resources\banner1.jpg"
+        src="../resources/banner1.jpg"
         alt="banner"
         className="h-full object-cover"
       ></img>
