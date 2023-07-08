@@ -2,7 +2,6 @@
 import {
   createBrowserRouter,
   RouterProvider,
-  Navigate,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
