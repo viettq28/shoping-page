@@ -15,8 +15,7 @@ const MainNavigation = () => {
   const navigate = useNavigate();
   // Lấy curuser và cartlength để hiển thị
   const curUser = useSelector((state) => state.auth?.curUser);
-  const cart = useSelector((state) => state.cart);
-  const cartLength = Object.keys(cart).length;
+  const cartLength = useSelector((state) => Object.keys(state.cart).length);
 
   // Effect transition cho cart icon
   useEffect(() => {

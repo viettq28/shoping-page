@@ -31,7 +31,7 @@ const Popup = ({ closePopup, ...curProduct }) => {
       {/* Phần ngoài modal, click để đóng */}
       <div
         className={`fixed inset-0 backdrop-brightness-50 transition duration-300 ease-in-out ${
-          transition ? '' : 'hidden'
+          transition ? 'opacity-100' : 'hidden opacity-0'
         }`}
         onClick={handleClose}
       ></div>

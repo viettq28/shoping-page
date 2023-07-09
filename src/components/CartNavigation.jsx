@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,4 +27,4 @@ const CartNavigation = () => {
     </div>
   );
 };
-export default CartNavigation;
+export default memo(CartNavigation);

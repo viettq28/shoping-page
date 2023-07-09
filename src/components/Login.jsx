@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Form, Link } from 'react-router-dom';
+import banner from '../../public/resources/banner1.jpg';
 
 import Button from '../UI/Button';
 import Input from '../UI/Input';
@@ -57,7 +58,7 @@ const Login = () => {
   return (
     <div
       className="relative h-[800px] w-full bg-contain"
-      style={{ backgroundImage: `url('/src/resources/banner1.jpg')` }}
+      style={{ backgroundImage: `url(${banner})` }}
     >
       <div
         className={`absolute m-auto w-1/2 bg-white ${shadow} inset-1/2 h-3/4 -translate-x-1/2 rounded-md p-10 text-center`}

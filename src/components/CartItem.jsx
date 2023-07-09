@@ -1,11 +1,12 @@
-import getPrice from '../tools/getPriceFromString';
+import { memo } from 'react';
 import { useDispatch } from 'react-redux';
+import getPrice from '../tools/getPriceFromString';
 import { updateItem, deleteItem } from '../store/cartReducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
-const CartItem = ({ id, product }) => {
+const CartItem = memo(function CartItem({ id, product }){
   const dispatch = useDispatch();
   // Tổng tiền từ giá và số lượng
   const totalPrice = +product.price * +product.qty;
@@ -60,5 +61,5 @@ const CartItem = ({ id, product }) => {
       />
     </>
   );
-};
+})
 export default CartItem;
