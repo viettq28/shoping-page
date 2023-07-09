@@ -12,7 +12,7 @@ import PreventAuth from './components/PreventAuth';
 import Layout, { loader as productsLoader } from './pages/Layout';
 import { action as loginAction } from './pages/LoginPage';
 import { action as registerAction } from './pages/RegisterPage';
-import Spinner from './components/Spinner';
+import Spinner from './UI/Spinner';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const CartPage = lazy(() => import('./pages/CartPage'));
