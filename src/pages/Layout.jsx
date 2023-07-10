@@ -1,12 +1,13 @@
+import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
 import useLocalStorage from '../hook/useLocalStorage';
 import { login, logout } from '../store/authReducer';
 
 import MainNavigation from '../components/MainNavigation';
 import Footer from '../components/Footer';
 import ChatPopup from '../components/ChatPopup';
+import Spinner from '../UI/Spinner';
 
 // LayoutPage
 const Layout = () => {

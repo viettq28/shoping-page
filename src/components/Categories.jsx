@@ -1,7 +1,5 @@
-// import { useNavigate } from 'react-router-dom';
 import Hover from '../UI/Hover';
 import imgs from '../tools/exportAllCatImg';
-console.log(imgs);
 // Mục Categories của trang chủ, click vào sẽ chuyển đến ShopPage
 const Categories = () => {
   const categories = ['iphone', 'mac', 'ipad', 'watch', 'airpod'];
